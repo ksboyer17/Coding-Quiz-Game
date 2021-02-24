@@ -2,13 +2,31 @@ const question =document.querySelector('#question');
 const choices = Array.from(document.querySelector('.choice-content'));
 const progress =document.querySelector('#progress');
 const scoreText =document.querySelector('#score');
-const timer =document.querySelector('#time-clock');
+const timer =document.querySelector('.time-clock');
 
 var currentQuestion = {};
 var acceptingAnswers = true;
 var score = 0;
 var questionCounter = 0;
 var availableQuestions = [];
+
+document.addEventListener('DOMContentLoaded', () => {
+    const timer =docoment.querySelector('.timer')
+    timeRemaining = 1;
+
+    function countDown(){
+        setInterval(function(){
+            if(timeLeft <= 0){
+             clearInterval(timeLeft = 0)   
+            }
+            timeLeftDisplay.innerHTML = timeLeft
+            timeLeft -=1
+        },1000)
+
+    }
+    question.addEventListener('click', countDown)
+    startTimer();
+})
 
 //Question Variables 
 var questions = [
