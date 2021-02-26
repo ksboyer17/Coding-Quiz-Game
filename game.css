@@ -4,11 +4,11 @@ body {
     font-size: 100px
 }
 
-.time-clock {
+.count {
   text-align: right;
   margin-right: 20px;
   height: 50px;
-  color:greenyellow;
+  color:red;
   font-weight: 600;
 }
 .choice-container {
@@ -35,7 +35,7 @@ body {
 }
 
 #question {
-    color: black;
+    color:red;
     font-size: x-large;
 }
 .correct {
@@ -66,3 +66,4 @@ text-align: center;
         min-width: 768px;
     }
 }
+

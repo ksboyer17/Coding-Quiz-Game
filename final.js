@@ -29,5 +29,10 @@ saveHighScore = e => {
     highScores.splice(5);
 
     localStorage.setItem('highScores', JSON.stringify(highScores))
-    window.location.assign('/');
+    window.location.assign('./final.html');
 }
+const highScoresList = document.querySelector('#highScoresList');
+
+highScoresList.innerHTML = highScores.map(score => {
+    return `<li class="high-score">${score.name} - ${score.score}</li>`
+}).join('');

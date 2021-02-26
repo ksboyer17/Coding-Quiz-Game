@@ -1,8 +1,8 @@
 const question =document.querySelector('#question');
-const choices = Array.from(document.querySelector('.choice-content'));
+const choices = Array.from(document.querySelectorAll('.choice-content'));
 const progress =document.querySelector('#progress');
 const scoreText =document.querySelector('#score');
-const timer =document.querySelector('.time-clock');
+const count =document.querySelector('.count');
 
 var currentQuestion = {};
 var acceptingAnswers = true;
@@ -10,28 +10,23 @@ var score = 0;
 var questionCounter = 0;
 var availableQuestions = [];
 
-document.addEventListener('DOMContentLoaded', () => {
-    const timer =docoment.querySelector('.timer')
-    timeRemaining = 1;
+//timer function
+var sec = 60;
+var time = setInterval(myTimer, 1000);
 
-    function countDown(){
-        setInterval(function(){
-            if(timeLeft <= 0){
-             clearInterval(timeLeft = 0)   
-            }
-            timeLeftDisplay.innerHTML = timeLeft
-            timeLeft -=1
-        },1000)
-
+function myTimer() {
+    document.getElementById('seconds').innerHTML = sec + " sec left";
+    sec--;
+    if (sec < 0) {
+        clearInterval(time);
+        alert("Time out!! :(");
     }
-    question.addEventListener('click', countDown)
-    startTimer();
-})
+}
 
 //Question Variables 
 var questions = [
     {
-        question: '. What is the HTML tag under which one can write the JavaScript code?',
+        question: ' What is the HTML tag under which one can write the JavaScript code?',
         choice1: '<javascript>',
         choice2: '<scripted>',
         choice3: '<script>',
@@ -49,7 +44,7 @@ var questions = [
     {
         question: 'Which of the following is correct about features of JavaScript?',
         choice1: 'JavaScript is is complementary to and integrated with HTML.',
-        choice2: 'B - JavaScript is open and cross-platform.',
+        choice2: 'JavaScript is open and cross-platform.',
         choice3: 'Both of the above.',
         choice4: 'All of the above.',
         answer: 3,
@@ -71,62 +66,77 @@ const MAX_QUESTIONS = 4
 startGame = () => {
     questionCounter = 0;
     score = 0;
-    availableQuestions = [...question];
+    //availableQuestions = [...question];
+    console.log(availableQuestions)
     getNewQuestion();
 }
 
 getNewQuestion = () => {
-    if(availableQuestions.length === 0 || questionCounter > MAX_QUESTIONS) {
+    if(questionCounter === questions.length) {
         localStorage.setItem('mostRecentScore', score);
 
-        return window.location.assign('/final.html');
+        return window.location.assign('./final.html');
     }
     
-    questionCounter++;
-    progressText.innerText = `question, ${questionCounter} of ${MAX_QUESTIONS}`;
+   /* questionCounter++;
+    progressText.innerText = `question, ${questionCounter} of ${MAX_QUESTIONS}`;*/
     
   
-    const questionsIndex = Math.floor(Math.random() * availableQuestions.length);
-    currentQuestion = availableQuestions[questionsIndex];
+    /*const questionsIndex = Math.floor(Math.random() * availableQuestions.length);*/
+    currentQuestion = questions[questionCounter];
     question.innerText = currentQuestion.question;
-    
+    console.log(choices);
     choices.forEach(choice => {
         const number = choice.dataset['number'];
+        console.log(number)
         choice.innerText = currentQuestion['choice' + number] ;  
     })
-    availableQuestions.splice(questionIndex, 1);
+    /*availableQuestions.splice(questionCounter, 1);*/
 
     acceptingAnswers = true;
 }
-
+//event choice listener
+function answersEvents () {
 choices.forEach(choice => {
-     choice.addEventListner('click', e => {
-         if(!acceptingAnswers) return;
-            
+     choice.addEventListener('click', e => {
+         if(!acceptingAnswers) {
+             return
+         };
          acceptingAnswers = false;
          const selectedChoice = e.target;
-         const selectedAnswer = selectedChoice.dataset['number'];
+         const selectedAnswer = parseInt(selectedChoice.dataset['number']);
 //Toggle green css or red css depending on right or wrong
-        var classToApply = selectedAnswer == currentQuestion.answer ? 'correct' :
+
+         if (selectedAnswer === currentQuestion.answer) {
+             scoreText.textContent = (score += SCORE_POINTS)
+         }
+        var classToApply = selectedAnswer === currentQuestion.answer ? 'correct' :
         'incorrect'
-//Award points when correct answer is selected
-         if(classToApply === 'correct') {
-            incrementScore(SCORE_POINTS);
+        if (selectedAnswer != currentQuestion.answer) {
+            sec -= 10;
         }
+//Award points when correct answer is selected
+         /*if(classToApply === 'correct') {
+            incrementScore(SCORE_POINTS);
+        }*/
 
         selectedChoice.parentElement.classList.add(classToApply);
-
+//quesiton transition time to next question
         setTimeout(() => {
             selectedChoice.parentElement.classList.remove(classToApply);
+            questionCounter++;
             getNewQuestion();
             
         },1000)
-    })
+   })
+  /*  questionCounter++;
+    progressText.innerText = `question, ${questionCounter} of ${MAX_QUESTIONS}`;*/
 })
-
-incrementScore = num => {
+}
+/*incrementScore = num => {
     score +=num;
     scoreText.innterText = score;
-}
+}*/
+answersEvents();
 
 startGame();
