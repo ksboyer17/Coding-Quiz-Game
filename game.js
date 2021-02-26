@@ -19,7 +19,8 @@ function myTimer() {
     sec--;
     if (sec < 0) {
         clearInterval(time);
-        alert("Time out!! :(");
+        localStorage.setItem('mostRecentScore', score);
+        return window.location.assign('./final.html');
     }
 }
 

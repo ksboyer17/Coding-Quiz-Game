@@ -13,9 +13,9 @@ The project consist of three HTML files, two CSS files and three Javascript file
 
 4. Once you have completed the quiz you will be redirected to the final html page where you will have the opportunity to submit your score. If your score is not in the top five, you will not show up on the leaderboard!
 
-**Link to Github Page:**
-https://ksboyer17.github.io/Coding-Quiz-Game/game.html -
-[GitHub](https://github.com/ksboyer17/Password-Generator)
+**Link to Diployed Page:**
+https://ksboyer17.github.io/Coding-Quiz-Game/index.html -
+[GitHub](https://ksboyer17.github.io/Coding-Quiz-Game/index.html )
 
 **Link to Deployed Webpage:**
 https://github.com/ksboyer17/Coding-Quiz-Game-
