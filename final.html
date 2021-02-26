@@ -13,7 +13,7 @@
             <h1 id="finalScore">0</h1>
             <form class="end-form-container">
                 <h2 id="end-text">
-                    Enter Your Initials <br>To Save Your Score!
+                    Enter Your Initials <br>To Save Your Score!<br> 
                 </h2>
                 <input type="text" name="name" id="username" placeholder="Enter your name">
                 <button class="btn" id="saveScoreBtn" type="submit"
@@ -21,6 +21,9 @@
             </form>
             <a href="./game.html" class="btn">Play Again!</a>
             <a href="./index.html" class="btn">Home!</a>
+            <div id="highscores" class=" flex-center flex-column">
+                <h1 id="finalScore">Leaderboard</h1>
+                <ul id="highScoresList"></ul>
         </div>
     </main> 
     <script src="./final.js"></script>

@@ -66,7 +66,6 @@ const MAX_QUESTIONS = 4
 startGame = () => {
     questionCounter = 0;
     score = 0;
-    //availableQuestions = [...question];
     console.log(availableQuestions)
     getNewQuestion();
 }
@@ -74,15 +73,8 @@ startGame = () => {
 getNewQuestion = () => {
     if(questionCounter === questions.length) {
         localStorage.setItem('mostRecentScore', score);
-
         return window.location.assign('./final.html');
     }
-    
-   /* questionCounter++;
-    progressText.innerText = `question, ${questionCounter} of ${MAX_QUESTIONS}`;*/
-    
-  
-    /*const questionsIndex = Math.floor(Math.random() * availableQuestions.length);*/
     currentQuestion = questions[questionCounter];
     question.innerText = currentQuestion.question;
     console.log(choices);
@@ -91,7 +83,7 @@ getNewQuestion = () => {
         console.log(number)
         choice.innerText = currentQuestion['choice' + number] ;  
     })
-    /*availableQuestions.splice(questionCounter, 1);*/
+   
 
     acceptingAnswers = true;
 }
@@ -115,10 +107,6 @@ choices.forEach(choice => {
         if (selectedAnswer != currentQuestion.answer) {
             sec -= 10;
         }
-//Award points when correct answer is selected
-         /*if(classToApply === 'correct') {
-            incrementScore(SCORE_POINTS);
-        }*/
 
         selectedChoice.parentElement.classList.add(classToApply);
 //quesiton transition time to next question
@@ -129,14 +117,9 @@ choices.forEach(choice => {
             
         },1000)
    })
-  /*  questionCounter++;
-    progressText.innerText = `question, ${questionCounter} of ${MAX_QUESTIONS}`;*/
 })
 }
-/*incrementScore = num => {
-    score +=num;
-    scoreText.innterText = score;
-}*/
+
 answersEvents();
 
 startGame();
