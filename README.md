@@ -20,3 +20,9 @@ https://ksboyer17.github.io/Coding-Quiz-Game/index.html -
 **Link to Deployed Webpage:**
 https://github.com/ksboyer17/Coding-Quiz-Game-
 [GitHub](https://github.com/ksboyer17/Coding-Quiz-Game)
+
+![Screenshot of the Start Page](https://github.com/ksboyer17/Coding-Quiz-Game/blob/main/assets/Start%20Page.png)
+
+![Screenshot of the Game](https://github.com/ksboyer17/Coding-Quiz-Game/blob/main/assets/Game.png)
+
+![Screenshot of the Final Page](https://github.com/ksboyer17/Coding-Quiz-Game/blob/main/assets/Final%20Page.png)
