@@ -60,10 +60,22 @@ body {
 text-align: center;
 }
 
-
-@media screen and (max-width: 768px) {
-    .choice-container {
-        min-width: 768px;
+@media screen and (min-width: 1366px) {
+    .container {
+        width:100%
     }
 }
+
+@media screen and (min-width: 768px) {
+    .container {
+        width: 75%;
+    }
+}
+
+@media screen and (min-width: 320px) {
+    .container {
+        width: 20%;
+    }
+}
+
 

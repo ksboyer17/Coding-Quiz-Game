@@ -124,3 +124,5 @@ choices.forEach(choice => {
 answersEvents();
 
 startGame();
+
+localStorage.removeItem("mostRecentScore");
