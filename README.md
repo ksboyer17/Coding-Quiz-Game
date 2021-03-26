@@ -26,3 +26,5 @@ https://github.com/ksboyer17/Coding-Quiz-Game-
 ![Screenshot of the Game](https://github.com/ksboyer17/Coding-Quiz-Game/blob/main/assets/Game.png)
 
 ![Screenshot of the Final Page](https://github.com/ksboyer17/Coding-Quiz-Game/blob/main/assets/Final%20Page.png)
+**Contact Information**
+ksboyerii@gmail.com
